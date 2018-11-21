@@ -3,7 +3,7 @@
 
 # Install the perfsonar repos and base OS updates
 - name: "{{ ansible_os_family }} Install"
-  include_tasks: "{{ ansible_os_family }}.yml"
+  include: "{{ ansible_os_family }}.yml"
   tags: [ 'ps::install' ]
 
 - name: Install perfSONAR bundle {{ perfsonar_bundle }}
