@@ -33,7 +33,7 @@ perfsonar_release: release
 # perfsonar_bundle: perfsonar-toolkit
 # perfsonar_bundle: perfsonar-psconfig-publisher
 #
-perfsonar_bundle: []
+# perfsonar_bundle: []
 
 # optional packages
-perfsonar_optional_packages: []
+# perfsonar_optional_packages: []
