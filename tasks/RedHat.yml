@@ -8,21 +8,39 @@
     name: epel-release
     state: latest
 
-# yum install http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
-- name: (RedHat) Add perfSONAR repository
+# The release repository is installed no matter what.
+# TODO: Why do we do this?
+- name: (RedHat) Add release perfSONAR repository
+  become: true
   yum:
     name: http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
     state: present
 
 - name: (RedHat) Use perfSONAR staging or nightly repository
+  become: true
   yum:
     name: perfSONAR-repo-{{ perfsonar_release }}
     state: present
   when:
-    - perfsonar_release != "release"
+    - perfsonar_release == "staging"
+
+
+# TODO: This is a hack and should be changed once we have a better
+# scheme in place for getting these without having to be so specific.
+- name: (RedHat) Add the perfSONAR {{ perfsonar_release }} repository (FOR DEVELOPMENT ONLY)
+  become: true
+  yum:
+    name: https://perfsonar-dev3.grnoc.iu.edu/nightly/el/7/x86_64/perfsonar/4.1.6/packages/perfSONAR-repo-{{ perfsonar_release }}-0.9-1.48.792280914bcd9579d1b19b7a0c219e713219f824.noarch.rpm
+    state: present
+  when:
+    - perfsonar_release in [ "nightly-minor", "nightly-patch" ]
+
+
+
 
 # Make sure we have the latest upgrades installed
 - name: (RedHat) Install system updates
+  become: true
   yum:
     name: '*'
     state: latest

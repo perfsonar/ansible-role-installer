@@ -17,9 +17,11 @@ perfsonar_os_update: True
 # Can be any of release, staging or snapshot for Debian/Ubuntu systems
 # or release, staging or nightly for CentOS systems
 #
+# This is the default.
 #perfsonar_release: release
 #perfsonar_release: staging
-#perfsonar_release: nightly
+#perfsonar_release: nightly-minor
+#perfsonar_release: nightly-patch
 #
 perfsonar_release: release
 
