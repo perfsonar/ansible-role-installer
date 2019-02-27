@@ -19,7 +19,7 @@
     name: perfSONAR-repo-{{ perfsonar_release }}
     state: present
   when:
-    - perfsonar_release == "staging" or perfsonar_release == "nightly"
+    - perfsonar_release != "release"
 
 # Make sure we have the latest upgrades installed
 - name: (RedHat) Install system updates
