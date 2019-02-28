@@ -10,10 +10,8 @@
 
 # yum install http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
 - name: (RedHat) Add perfSONAR repository
-  yum_repository:
-    description: perfSONAR repo
-    name: perfSONAR
-    baseurl: http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
+  yum:
+    name: http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.8-1.noarch.rpm
     state: present
 
 - name: (RedHat) Use perfSONAR staging or nightly repository
