@@ -3,6 +3,7 @@
 
 # Setup the required repositories
 - name: (Ubuntu) Make sure the universe repo is enabled
+  tags: [ 'ps::install' ]
   # It is better to use add-apt-repository rather than the apt_repository
   # module from Ansible.  This command will NOT duplicate an already existing
   # universe repo setup using a mirror.
@@ -12,16 +13,19 @@
   changed_when: universe_output.stdout != "'universe' distribution component is already enabled for all sources."
 
 - name: (Debian) Import perfSONAR repository signing key
+  tags: [ 'ps::install' ]
   apt_key:
     url: http://downloads.perfsonar.net/debian/perfsonar-{{ perfsonar_release }}.gpg.key
     state: present
 
 - name: (Debian) Add perfSONAR repository
+  tags: [ 'ps::install' ]
   apt_repository:
     repo: deb http://downloads.perfsonar.net/debian/ perfsonar-{{ perfsonar_release }} main
     state: present
 
 - name: (Debian) Install system updates
+  tags: [ 'ps::install' ]
   apt:
     upgrade: dist
     update_cache: yes
