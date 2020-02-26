@@ -12,13 +12,13 @@
   register: universe_output
   changed_when: universe_output.stdout != "'universe' distribution component is already enabled for all sources."
 
-- name: (Debian) Import perfSONAR repository signing key
+- name: (Debian) Import perfSONAR repository signing key - {{ perfsonar_release }}
   tags: [ 'ps::install' ]
   apt_key:
     url: http://downloads.perfsonar.net/debian/perfsonar-{{ perfsonar_release }}.gpg.key
     state: present
 
-- name: (Debian) Add perfSONAR repository
+- name: (Debian) Add perfSONAR repository - {{ perfsonar_release }}
   tags: [ 'ps::install' ]
   apt_repository:
     repo: deb http://downloads.perfsonar.net/debian/ perfsonar-{{ perfsonar_release }} main
