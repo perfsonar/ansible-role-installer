@@ -16,11 +16,11 @@ perfsonar_os_update: True
 # The perfSONAR repository you want to use on your systems
 # Can be any of:
 # release or "(patch|minor|4.x)-(staging|snapshot)" for Debian/Ubuntu systems
-# or release, staging or nightly for CentOS systems
+# release, nightly-patch, nightly-minor or stagging for CentOS systems
 #
 #perfsonar_release: release
-#perfsonar_release: staging
-#perfsonar_release: nightly
+#perfsonar_release: nightly-patch
+#perfsonar_release: 4.4-snapshot
 #
 perfsonar_release: release
 
