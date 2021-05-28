@@ -18,6 +18,12 @@
     url: http://downloads.perfsonar.net/debian/perfsonar-{{ perfsonar_release }}.gpg.key
     state: present
 
+- name: Remove previously configured repositories
+  tags: [ 'ps::install' ]
+  file:
+    path: /etc/apt/sources.list.d/downloads_perfsonar_net_debian.list
+    state: absent
+
 - name: (Debian) Add perfSONAR repository - {{ perfsonar_release }}
   tags: [ 'ps::install' ]
   apt_repository:
