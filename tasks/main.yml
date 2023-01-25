@@ -2,6 +2,11 @@
 # tasks file for perfsonar-installer
 
 # Install the perfsonar repos and base OS updates
+- name: Gather facts to load OS information
+  tags: [ 'ps::install' ]
+  setup:
+  become: no
+
 - name: "{{ ansible_os_family }} Install"
   tags: [ 'ps::install' ]
   include: "{{ ansible_os_family }}.yml"
