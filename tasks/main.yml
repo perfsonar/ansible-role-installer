@@ -9,7 +9,7 @@
 
 - name: "{{ ansible_os_family }} Install"
   tags: [ 'ps::install' ]
-  include: "{{ ansible_os_family }}.yml"
+  include_tasks: "{{ ansible_os_family }}.yml"
   when: ansible_os_family | default('') != ''
 
 - name: Install perfSONAR bundle {{ perfsonar_bundle }}
