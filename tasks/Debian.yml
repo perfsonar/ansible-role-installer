@@ -15,7 +15,7 @@
 - name: (Debian) Import perfSONAR repository signing key - {{ perfsonar_release }}
   tags: [ 'ps::install' ]
   apt_key:
-    url: http://downloads.perfsonar.net/debian/perfsonar-{{ perfsonar_release }}.gpg.key
+    url: http://perfsonar-repo.geant.org/debian/perfsonar-{{ perfsonar_release }}.gpg.key
     state: present
 
 - name: Remove previously configured repositories
@@ -27,7 +27,7 @@
 - name: (Debian) Add perfSONAR repository - {{ perfsonar_release }}
   tags: [ 'ps::install' ]
   apt_repository:
-    repo: deb http://downloads.perfsonar.net/debian/ perfsonar-{{ perfsonar_release }} main
+    repo: deb http://perfsonar-repo.geant.org/debian/ perfsonar-{{ perfsonar_release }} main
     state: present
 
 - name: (Debian) Install system updates
