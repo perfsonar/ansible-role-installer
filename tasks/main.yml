@@ -18,6 +18,12 @@
     name: "{{ perfsonar_bundle }}"
     state: latest
 
+- name: Install Time Synchronization Service
+  tags: [ 'ps::install' ]
+  package:
+    name: "{{ timesynchash[timesync][ansible_os_family]['pkg'] }}"
+    state: latest
+
 - name: Install perfSONAR additional packages
   tags: [ 'ps::install' ]
   package:
