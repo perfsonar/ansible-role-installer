@@ -9,11 +9,11 @@
     name: epel-release
     state: present
 
-# yum install http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.10-1.noarch.rpm
+# yum install http://downloads.perfsonar.net/redhat/main/rpms/el7/x86_64/main/RPMS/perfsonar-repo-0.11-1.noarch.rpm
 - name: (RedHat) Add perfSONAR repository
   tags: [ 'ps::install' ]
   yum:
-    name: http://software.internet2.edu/rpms/el7/x86_64/main/RPMS/perfSONAR-repo-0.10-1.noarch.rpm
+    name: http://downloads.perfsonar.net/redhat/main/rpms/el7/x86_64/main/RPMS/perfsonar-repo-0.11-1.noarch.rpm
     state: present
 
 - name: (RedHat) Use perfSONAR staging or nightly repository
