@@ -1,12 +1,13 @@
 ---
 # tasks file for perfsonar-installer
 
-# Install the perfsonar repos and base OS updates
+# This needs to be done for all tags so that the OS information is existing for all roles
 - name: Gather facts to load OS information
-  tags: [ 'ps::install' ]
+  tags: [ 'ps::install', 'ps::running', 'ps::config', 'ps::monitor', 'ps::pwa_users' ]
   setup:
   become: no
 
+# Install the perfsonar repos and base OS updates
 - name: "{{ ansible_os_family }} Install"
   tags: [ 'ps::install' ]
   include_tasks: "{{ ansible_os_family }}.yml"

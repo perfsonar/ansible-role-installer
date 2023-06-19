@@ -32,7 +32,13 @@ Role Tags
 
 Some tags are used in the role, they are meant to run only or skip part of the process.  The following tags are existing:
 
-  - `ps::install` : only install perfSONAR packages and their dependencies
+  - `ps::install`: only install perfSONAR packages and their dependencies
+  - 'ps::running': only make sure perfSONAR services are up and running
+  - 'ps::config': only run tasks that configure perfSONAR and its services
+  - 'ps::monitor': only run tasks that monitor perfSONAR
+  - 'ps::pwa_users': only run tasks that configure PWA users
+
+Those tags are also used in the other perfSONAR related roles.
 
 Dependencies
 ------------
