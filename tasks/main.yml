@@ -15,13 +15,15 @@
 
 - name: Install perfSONAR bundle {{ perfsonar_bundle }}
   tags: [ 'ps::install' ]
-  package:
+  ansible.builtin.package:
     name: "{{ perfsonar_bundle }}"
     state: latest
+  environment:
+    OPENSEARCH_INITIAL_ADMIN_PASSWORD: perfSONAR123!
 
 - name: Install perfSONAR additional packages
   tags: [ 'ps::install' ]
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: latest
   with_items: "{{ perfsonar_optional_packages | default([]) }}"
